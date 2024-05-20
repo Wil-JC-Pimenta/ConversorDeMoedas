@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 public class ConversorComBusca {
-    public static void main(String[] args) {
+    public static void main(String[] args, Object ValorAtual) {
         String jsonString = "{\n" +
                 "    \"USD_ARS\": 97.04,\n" +
                 "    \"USD_BOB\": 6.93,\n" +

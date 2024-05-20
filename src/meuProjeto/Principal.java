@@ -1,14 +1,12 @@
 package meuProjeto;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
 import java.util.Map;
 import java.util.Scanner;
 
-import static meuProjeto.TaxaConversaoService.*;
+import static meuProjeto.TaxaConversaoService.buscarTaxas;
 
 public class Principal {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Map<String, Double> taxas = buscarTaxas();
@@ -34,19 +32,80 @@ public class Principal {
                 System.out.println("Opção inválida. Tente novamente!");
                 continue;
             }
+
             if (escolha == 7) {
                 System.out.println("Saindo...");
                 break;
             }
 
+            String descricaoOpcao = obterDescricaoOpcao(escolha);
+            System.out.println("Opção escolhida: " + descricaoOpcao);
             System.out.print("Digite a quantia: ");
             double quantia = scanner.nextDouble();
             double quantiaConvertida = ConversorMoeda.converterMoeda(quantia, escolha, taxas);
             if (quantiaConvertida == -1) {
                 System.out.println("Opção inválida selecionada.");
             } else {
-                System.out.printf("Quantia convertida: %.2f%n", quantiaConvertida);
+                String moedaOrigem = obterMoedaOrigem(escolha);
+                String moedaDestino = obterMoedaDestino(escolha);
+                System.out.printf("Valor: %.2f %s, valor convertido: %.2f %s%n", quantia, moedaOrigem, quantiaConvertida, moedaDestino);
+                break;
             }
+        }
+    }
+
+    private static String obterDescricaoOpcao(int escolha) {
+        switch (escolha) {
+            case 1:
+                return "Dólar ==> Peso argentino";
+            case 2:
+                return "Peso argentino ==> Dólar";
+            case 3:
+                return "Dólar ==> Real brasileiro";
+            case 4:
+                return "Real brasileiro ==> Dólar";
+            case 5:
+                return "Dólar ==> Peso colombiano";
+            case 6:
+                return "Peso colombiano ==> Dólar";
+            default:
+                return "Opção inválida";
+        }
+    }
+
+    private static String obterMoedaOrigem(int escolha) {
+        switch (escolha) {
+            case 1:
+            case 3:
+            case 5:
+                return "USD";
+            case 2:
+                return "ARS";
+            case 4:
+                return "BRL";
+            case 6:
+                return "COP";
+            default:
+                return "";
+        }
+    }
+
+    private static String obterMoedaDestino(int escolha) {
+        switch (escolha) {
+            case 1:
+                return "ARS";
+            case 2:
+                return "USD";
+            case 3:
+                return "BRL";
+            case 4:
+                return "USD";
+            case 5:
+                return "COP";
+            case 6:
+                return "USD";
+            default:
+                return "";
         }
     }
 }
