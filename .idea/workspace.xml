@@ -5,10 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd451458-5d39-4d28-b18b-f825b92bc128" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/br/com/model/meuProjeto/TaxaConversaoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/br/com/service/meuProjeto/ConversorMoeda.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/br/com/util/meuProjeto/JsonUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/meuProjeto/ConversorComBusca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/meuProjeto/ConversorComBusca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/meuProjeto/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/meuProjeto/Principal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/taxasConversao.json" beforeDir="false" afterPath="$PROJECT_DIR$/taxasConversao.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/meuProjeto/ConversorComBusca.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/meuProjeto/ConversorMoeda.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/meuProjeto/Principal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/meuProjeto/br/com/principal/Principal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/meuProjeto/TaxaConversaoService.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -72,7 +77,7 @@
       <module name="ConversorDeMoedas" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="meuProjeto.*" />
+          <option name="PATTERN" value="meuProjeto.br.com.principal.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -81,7 +86,7 @@
       </method>
     </configuration>
     <configuration name="Principal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="meuProjeto.Principal" />
+      <option name="MAIN_CLASS_NAME" value="meuProjeto.br.com.principal.Principal" />
       <module name="ConversorDeMoedas" />
       <method v="2">
         <option name="Make" enabled="true" />

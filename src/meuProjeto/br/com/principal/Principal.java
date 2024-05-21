@@ -1,15 +1,16 @@
-package meuProjeto;
+package meuProjeto.br.com.principal;
+
+import br.com.service.meuProjeto.ConversorMoeda;
+import br.com.model.meuProjeto.TaxaConversaoService;
 
 import java.util.Map;
 import java.util.Scanner;
-
-import static meuProjeto.TaxaConversaoService.buscarTaxas;
 
 public class Principal {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Map<String, Double> taxas = buscarTaxas();
+        Map<String, Double> taxas = TaxaConversaoService.buscarTaxas();
         if (taxas == null) {
             System.out.println("Falha ao buscar taxas de câmbio. Saindo.");
             return;
@@ -24,18 +25,24 @@ public class Principal {
             System.out.println("4) Real brasileiro ==> Dólar");
             System.out.println("5) Dólar ==> Peso colombiano");
             System.out.println("6) Peso colombiano ==> Dólar");
-            System.out.println("7) Sair");
+            System.out.println("7) Buscar Taxas");
+            System.out.println("8) Sair");
             System.out.println("**********************************");
             System.out.print("Escolha uma opção válida: ");
             int escolha = scanner.nextInt();
-            if (escolha < 1 || escolha > 7) {
+            if (escolha < 1 || escolha > 8) {
                 System.out.println("Opção inválida. Tente novamente!");
                 continue;
             }
 
-            if (escolha == 7) {
+            if (escolha == 8) {
                 System.out.println("Saindo...");
                 break;
+            }
+
+            if (escolha == 7) {
+                buscarTaxasAtuais(taxas);
+                continue;
             }
 
             String descricaoOpcao = obterDescricaoOpcao(escolha);
@@ -49,9 +56,13 @@ public class Principal {
                 String moedaOrigem = obterMoedaOrigem(escolha);
                 String moedaDestino = obterMoedaDestino(escolha);
                 System.out.printf("Valor: %.2f %s, valor convertido: %.2f %s%n", quantia, moedaOrigem, quantiaConvertida, moedaDestino);
-                break;
             }
         }
+    }
+
+    private static void buscarTaxasAtuais(Map<String, Double> taxas) {
+        System.out.println("Taxas de câmbio atuais:");
+        taxas.forEach((moeda, taxa) -> System.out.println(moeda + ": " + taxa));
     }
 
     private static String obterDescricaoOpcao(int escolha) {
